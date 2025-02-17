@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etheron - The Official Memecoin of EtheronAI Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/chart.umd.js"></script>
+</head>
+<body class="dark:bg-slate-900 transition-colors" onload="fetchTokenData()">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-yellow-600 to-purple-600 dark:from-slate-800 dark:to-slate-900">
+        <!-- Navigation Bar -->
+        <nav class="absolute top-0 left-0 w-full bg-transparent dark:bg-transparent">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="text-2xl font-bold text-white" style="flex-direction: column;">
+                    <svg class="w-16 h-16 text-indigo-600 dark:text-indigo-400" fill="none" stroke="white" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="3" stroke-width="2" />
+                        <line x1="12" y1="5" x2="12" y2="9" stroke-width="2" />
+                        <line x1="12" y1="15" x2="12" y2="19" stroke-width="2" />
+                        <line x1="5" y1="12" x2="9" y2="12" stroke-width="2" />
+                        <line x1="15" y1="12" x2="19" y2="12" stroke-width="2" />
+                        <line x1="7" y1="7" x2="10" y2="10" stroke-width="2" />
+                        <line x1="14" y1="14" x2="17" y2="17" stroke-width="2" />
+                        <line x1="7" y1="17" x2="10" y2="14" stroke-width="2" />
+                        <line x1="14" y1="7" x2="17" y2="10" stroke-width="2" />
+                        <circle cx="12" cy="12" r="8" stroke-width="2" stroke-dasharray="2 2" />
+                    </svg>
+                </div>
+                <ul class="flex space-x-6">
+                    <li><a href="https://etheron.ai/" target="_blank" class="text-gray-200 hover:bg-white hover:text-indigo-600 transition duration-300 px-4 py-2 rounded-2xl">EtheronAI</a></li>
+                    <li class="hidden md:block"><a href="#distribution" class="text-gray-200 hover:bg-white hover:text-indigo-600 transition duration-300 px-4 py-2 rounded-2xl">Token Distribution</a></li>
+                    <li class="hidden md:block"><a href="#utility" class="text-gray-200 hover:bg-white hover:text-indigo-600 transition duration-300 px-4 py-2 rounded-2xl">Token Utility</a></li>
+                    <li class="hidden md:block"><a href="#vision" class="text-gray-200 hover:bg-white hover:text-indigo-600 transition duration-300 px-4 py-2 rounded-2xl">Future Vision</a></li>
+                    <li class="hidden md:block"><a href="#about" class="text-gray-200 hover:bg-white hover:text-indigo-600 transition duration-300 px-4 py-2 rounded-2xl">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container mx-auto px-6 py-24 text-center page-transition">
+            <div class="max-w-4xl mx-auto bg-white/10 dark:bg-black/20 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/10">
+                <div class="flex flex-col md:flex-row justify-center items-center space-x-4 mb-8">
+                    <div>
+                        <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-2">$Etheron</h1>
+                        <p class="text-xl text-white/80">Official Memecoin of EtheronAI</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-white/5 p-4 rounded-xl">
+                        <p class="text-sm text-white/70">Price</p>
+                        <p class="text-2xl font-bold text-white" id="price">N/A</p>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-xl">
+                        <p class="text-sm text-white/70">Market Cap</p>
+                        <p class="text-2xl font-bold text-white" id="marketCap">N/A</p>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-xl col-span-2 md:col-span-1">
+                        <p class="text-sm text-white/70">24H</p>
+                        <p class="text-2xl font-bold text-white" id="priceChange">N/A</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl inline-block mb-8">
+                    <p class="text-xl font-mono text-gray-800 dark:text-white relative">
+                        <span class="text-sm block">Contract Address:</span>
+                        <span id="contractAddress" onclick="copyAddress()" style="word-break: break-all;">Waiting for launch...</span>
+                        <button id="copyButton" onclick="copyAddress()" class="ml-2 px-2 py-2 bg-white rounded-lg hover:bg-purple-300 transition-colors">
+                            <span id="copyButtonText">
+                               <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path d="M5 15H4C3.46957 15 2.96086 14.7893 2.58579 14.4142C2.21071 14.0391 2 13.5304 2 13V4C2 3.46957 2.21071 2.96086 2.58579 2.58579C2.96086 2.21071 3.46957 2 4 2H13C13.5304 2 14.0391 2.21071 14.4142 2.58579C14.7893 2.96086 15 3.46957 15 4V5M11 9H20C21.1046 9 22 9.89543 22 11V20C22 21.1046 21.1046 22 20 22H11C9.89543 22 9 21.1046 9 20V11C9 9.89543 9.89543 9 11 9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                    <a href="#buy" class="px-8 py-4 bg-white text-indigo-600 rounded-full hover:bg-gray-100 transition-colors font-bold shadow-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 3v2m10-2v2M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Buy Now
+                    </a>
+                    <a href="#chart" class="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors font-bold flex items-center justify-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                        Live Chart
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Token Distribution Section -->
+    <section class="py-24 bg-white dark:bg-slate-900" id="distribution">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Token Distribution</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Distribution Chart -->
+                <div class="bg-gray-50 dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6">Allocation Breakdown</h3>
+                    <div class="h-96">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Unlock Schedule -->
+                <div class="bg-gray-50 dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6">Vesting Schedule</h3>
+                    <div class="h-96">
+                        <canvas id="unlockChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Allocation Table -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold mb-6 text-center">Detailed Allocation</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-slate-700">
+                        <thead class="bg-gray-50 dark:bg-slate-800">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Category</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Percentage</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tokens</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Vesting Period</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white dark:bg-slate-900 divide-y divide-gray-200 dark:divide-slate-700">
+                            <tr>
+                                <td class="px-6 py-4">Liquidity</td>
+                                <td class="px-6 py-4">40%</td>
+                                <td class="px-6 py-4">400,000,000</td>
+                                <td class="px-6 py-4">Immediate</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">Development</td>
+                                <td class="px-6 py-4">25%</td>
+                                <td class="px-6 py-4">250,000,000</td>
+                                <td class="px-6 py-4">12 months linear</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">Team</td>
+                                <td class="px-6 py-4">15%</td>
+                                <td class="px-6 py-4">150,000,000</td>
+                                <td class="px-6 py-4">24 months linear</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">Advisors</td>
+                                <td class="px-6 py-4">10%</td>
+                                <td class="px-6 py-4">100,000,000</td>
+                                <td class="px-6 py-4">18 months linear</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">Marketing</td>
+                                <td class="px-6 py-4">10%</td>
+                                <td class="px-6 py-4">100,000,000</td>
+                                <td class="px-6 py-4">12 months linear</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Token Utility Section -->
+    <section class="py-24 bg-gray-50 dark:bg-slate-800" id="utility">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Token Utility</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-indigo-500 text-4xl mb-4">💸</div>
+                    <h3 class="text-xl font-bold mb-4">Transaction Fees</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Used for network operations and gas fees within EtheronAI Development</p>
+                </div>
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-indigo-500 text-4xl mb-4">🗳️</div>
+                    <h3 class="text-xl font-bold mb-4">Governance</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Vote on protocol upgrades and Development development</p>
+                </div>
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-indigo-500 text-4xl mb-4">🔑</div>
+                    <h3 class="text-xl font-bold mb-4">Exclusive Access</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Access exclusive content, events, and early access to new features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Vision Section -->
+    <section class="py-24 bg-white dark:bg-slate-900" id="vision">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Future Vision</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto mb-8">As a network-driven memecoin, $ETHERON's vision is shaped by its holders and the evolving crypto landscape. Here's a glimpse into our future vision:</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Network Growth & Engagement</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Focus on expanding the Etheron network through fun events, contests, and collaborations. More holders, more fun!</p>
+                </div>
+                <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Meme Utility & Integrations</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Exploring creative ways to integrate $ETHERON into the meme culture and online platforms. Think stickers, games, and viral content!</p>
+                </div>
+                <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Decentralized Governance</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Progressively decentralizing the project, giving the holders more say in the direction of $ETHERON. Your memes, your rules!</p>
+                </div>
+                <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Partnerships & Charity</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Seeking partnerships to expand the reach of $ETHERON and exploring opportunities for charitable contributions. Memes with a mission!</p>
+                </div>
+                <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">NFTs & Collectibles</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Potential launch of $ETHERON themed NFTs and digital collectibles to add more value and flair to the Development.</p>
+                </div>
+                <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Token Utility Expansion</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Continuously looking for ways to add utility to $ETHERON, making it more than just a meme. Use it, love it, meme it!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 bg-gray-50 dark:bg-slate-800" id="about">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">About Memecoins</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
+                    <h3 class="font-bold text-lg">What is a memecoin?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">A memecoin is a type of cryptocurrency that is often created as a joke or for fun, typically inspired by internet memes.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
+                    <h3 class="font-bold text-lg">How does Solana differ from other cryptocurrencies?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Solana is known for its high throughput and low transaction costs, making it a popular choice for decentralized applications and DeFi projects.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
+                    <h3 class="font-bold text-lg">Why are memecoins popular?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Memecoins often gain popularity due to their community-driven nature and viral marketing, appealing to a younger audience.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
+                    <h3 class="font-bold text-lg">Can memecoins be a good investment?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">While some investors have made profits from memecoins, they are highly speculative and can be very volatile.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
+                    <h3 class="font-bold text-lg">What should I know before investing in memecoins?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">It's important to do thorough research, understand the risks, and only invest what you can afford to lose.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
+                    <h3 class="font-bold text-lg">What are the risks associated with investing in memecoins?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Investing in memecoins can be risky due to their high volatility, lack of regulation, and the potential for scams. It's crucial to conduct thorough research and be cautious.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-200 dark:bg-slate-900 text-gray-600 dark:text-gray-300 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-6">
+                <a href="https://x.com/etheron_ai" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-500">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@etheronai" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-500">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 25 25">
+                        <path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0115.54 3h-3.09v12.4a2.592 2.592 0 01-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 004.3 1.38V7.3s-1.88.09-3.24-1.48z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/EtheronAI" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-500">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.091-.647.349-1.088.635-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.683-.103-.253-.447-1.27.098-2.647 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.026 2.747-1.026.547 1.377.203 2.394.1 2.647.64.699 1.026 1.592 1.026 2.683 0 3.842-2.337 4.688-4.565 4.935.359.307.678.915.678 1.846 0 1.335-.012 2.415-.012 2.741 0 .267.18.577.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+                <a href="mailto:coin@etheron.meme" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-500">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="pt-8 mt-8 border-t border-gray-300 dark:border-slate-700 text-center">
+                <p class="text-sm">
+                    &copy; 2025, EtheronAI Inc.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-14 right-7" style="display: none;">
+        <svg class="w-6 h-6" fill="none" stroke="black" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
