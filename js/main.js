@@ -27,8 +27,8 @@ function copyAddress() {
 }
 
 function fetchTokenData() {
-	const pair = ''; // Dexscreener Pair
-	const apiUrl = 'https://api.dexscreener.com/latest/dex/pairs/solana/' + pair;
+	const pair = '0xA55FF4fD5f5e5510E3486Bc698B8610b9bd2F058'; // Dexscreener Pair
+	const apiUrl = 'https://api.dexscreener.com/latest/dex/pairs/bsc/' + pair;
 	fetch(apiUrl)
 		.then(response => response.json())
 		.then(data => {
@@ -92,15 +92,12 @@ const distributionCtx = document.getElementById('distributionChart')
 new Chart(distributionCtx, {
 	type: 'doughnut',
 	data: {
-		labels: ['Liquidity', 'Development', 'Team', 'Advisors', 'Marketing'],
+		labels: ['Liquidity', 'Team'],
 		datasets: [{
-			data: [400000000, 250000000, 150000000, 100000000, 100000000],
+			data: [800000000, 200000000],
 			backgroundColor: [
 				'#4f46e5',
-				'#3b82f6',
-				'#10b981',
-				'#f59e0b',
-				'#ef4444'
+				'#800080',
 			],
 			borderWidth: 0
 		}]
@@ -128,35 +125,12 @@ const unlockCtx = document.getElementById('unlockChart')
 new Chart(unlockCtx, {
 	type: 'line',
 	data: {
-		labels: ['Mar 2025', 'Apr 2025', 'May 2025', 'Jun 2025', 'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025', 'Jan 2026', 'Feb 2026', 'Mar 2026', 'Apr 2026', 'May 2026', 'Jun 2026', 'Jul 2026', 'Aug 2026', 'Sep 2026', 'Oct 2026', 'Nov 2026', 'Dec 2026', 'Jan 2027', 'Feb 2027'],
-		datasets: [{
-				label: 'Development',
-				data: [8.33, 16.66, 25, 33.33, 41.66, 50, 58.33, 66.66, 75, 83.33, 91.66, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
-				borderColor: '#3b82f6',
-				backgroundColor: '#4f46e510',
-				fill: false,
-				tension: 0.4
-			},
+		labels: ['Mar 2025', 'Apr 2025', 'May 2025', 'Jun 2025', 'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025', 'Jan 2026', 'Feb 2026'],
+		datasets: [
 			{
 				label: 'Team',
-				data: [4.17, 8.34, 12.51, 16.68, 20.85, 25.02, 29.19, 33.36, 37.53, 41.7, 45.87, 50.04, 54.21, 58.38, 62.55, 66.72, 70.89, 75.06, 79.23, 83.4, 87.57, 91.74, 95.91, 100],
-				borderColor: '#10b981',
-				backgroundColor: '#f59e0b10',
-				fill: false,
-				tension: 0.4
-			},
-			{
-				label: 'Advisors',
-				data: [5.56, 11.12, 16.68, 22.24, 27.8, 33.36, 38.92, 44.48, 50.04, 55.6, 61.16, 66.72, 72.28, 77.84, 83.4, 88.96, 94.52, 100, 100, 100, 100, 100, 100, 100, 100],
-				borderColor: '#f59e0b',
-				backgroundColor: '#10b98110',
-				fill: false,
-				tension: 0.4
-			},
-			{
-				label: 'Marketing',
-				data: [8.33, 16.66, 25, 33.33, 41.66, 50, 58.33, 66.66, 75, 83.33, 91.66, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
-				borderColor: '#ef4444',
+				data: [8.33, 16.66, 25, 33.33, 41.66, 50, 58.33, 66.66, 75, 83.33, 91.66, 100],
+				borderColor: '#800080',
 				backgroundColor: '#3b82f610',
 				fill: false,
 				tension: 0.4

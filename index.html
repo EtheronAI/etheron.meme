@@ -47,24 +47,24 @@
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-4 mb-8">
-                    <div class="bg-white/5 p-4 rounded-xl">
+                    <div class="bg-white/5 p-4 rounded-xl overflow-hidden">
                         <p class="text-sm text-white/70">Price</p>
-                        <p class="text-2xl font-bold text-white" id="price">N/A</p>
+                        <p class="text-2xl font-bold text-white break-words" id="price">N/A</p>
                     </div>
-                    <div class="bg-white/5 p-4 rounded-xl">
+                    <div class="bg-white/5 p-4 rounded-xl overflow-hidden">
                         <p class="text-sm text-white/70">Market Cap</p>
-                        <p class="text-2xl font-bold text-white" id="marketCap">N/A</p>
+                        <p class="text-2xl font-bold text-white break-words" id="marketCap">N/A</p>
                     </div>
-                    <div class="bg-white/5 p-4 rounded-xl col-span-2 md:col-span-1">
+                    <div class="bg-white/5 p-4 rounded-xl col-span-2 md:col-span-1 overflow-hidden">
                         <p class="text-sm text-white/70">24H</p>
-                        <p class="text-2xl font-bold text-white" id="priceChange">N/A</p>
+                        <p class="text-2xl font-bold text-white break-words" id="priceChange">N/A</p>
                     </div>
                 </div>
 
                 <div class="bg-white dark:bg-slate-800 p-4 rounded-xl inline-block mb-8">
                     <p class="text-xl font-mono text-gray-800 dark:text-white relative">
                         <span class="text-sm block">Contract Address:</span>
-                        <span id="contractAddress" onclick="copyAddress()" style="word-break: break-all;">Waiting for launch...</span>
+                        <span id="contractAddress" onclick="copyAddress()" style="word-break: break-all; font-size: 1rem;">0xe841cdb1a7178b5995fce683d2e34c3d49d4f89a</span>
                         <button id="copyButton" onclick="copyAddress()" class="ml-2 px-2 py-2 bg-white rounded-lg hover:bg-purple-300 transition-colors">
                             <span id="copyButtonText">
                                <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,13 +76,13 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-                    <a href="#buy" class="px-8 py-4 bg-white text-indigo-600 rounded-full hover:bg-gray-100 transition-colors font-bold shadow-lg flex items-center justify-center">
+                    <a href="https://dexscreener.com/bsc/0xe841cdb1a7178b5995fce683d2e34c3d49d4f89a" target="_blank" class="px-8 py-4 bg-white text-indigo-600 rounded-full hover:bg-gray-100 transition-colors font-bold shadow-lg flex items-center justify-center">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 3v2m10-2v2M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                         </svg>
                         Buy Now
                     </a>
-                    <a href="#chart" class="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors font-bold flex items-center justify-center">
+                    <a href="https://dexscreener.com/bsc/0xe841cdb1a7178b5995fce683d2e34c3d49d4f89a" target="_blank" class="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors font-bold flex items-center justify-center">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
@@ -131,33 +131,17 @@
                         <tbody class="bg-white dark:bg-slate-900 divide-y divide-gray-200 dark:divide-slate-700">
                             <tr>
                                 <td class="px-6 py-4">Liquidity</td>
-                                <td class="px-6 py-4">40%</td>
-                                <td class="px-6 py-4">400,000,000</td>
+                                <td class="px-6 py-4">80%</td>
+                                <td class="px-6 py-4">800,000,000</td>
                                 <td class="px-6 py-4">Immediate</td>
                             </tr>
                             <tr>
-                                <td class="px-6 py-4">Development</td>
-                                <td class="px-6 py-4">25%</td>
-                                <td class="px-6 py-4">250,000,000</td>
-                                <td class="px-6 py-4">12 months linear</td>
-                            </tr>
-                            <tr>
                                 <td class="px-6 py-4">Team</td>
-                                <td class="px-6 py-4">15%</td>
-                                <td class="px-6 py-4">150,000,000</td>
-                                <td class="px-6 py-4">24 months linear</td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4">Advisors</td>
-                                <td class="px-6 py-4">10%</td>
-                                <td class="px-6 py-4">100,000,000</td>
-                                <td class="px-6 py-4">18 months linear</td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4">Marketing</td>
-                                <td class="px-6 py-4">10%</td>
-                                <td class="px-6 py-4">100,000,000</td>
-                                <td class="px-6 py-4">12 months linear</td>
+                                <td class="px-6 py-4">20%</td>
+                                <td class="px-6 py-4">200,000,000</td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.dx.app/dxlock/view/token-locker?address=0xF4ACe8159d98B9Af2e7066D79D6c4696936cC106&chain=56" target="_blank" class="text-indigo-600 hover:underline">12 months linear</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -174,17 +158,17 @@
                 <div class="p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-indigo-500 text-4xl mb-4">💸</div>
                     <h3 class="text-xl font-bold mb-4">Transaction Fees</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Used for network operations and gas fees within EtheronAI Development</p>
+                    <p class="text-gray-600 dark:text-gray-300">Used for network operations and gas fees within EtheronAI Development on BSC.</p>
                 </div>
                 <div class="p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-indigo-500 text-4xl mb-4">🗳️</div>
                     <h3 class="text-xl font-bold mb-4">Governance</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Vote on protocol upgrades and Development development</p>
+                    <p class="text-gray-600 dark:text-gray-300">Vote on protocol upgrades and Binance Smart Chain development.</p>
                 </div>
                 <div class="p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
                     <div class="text-indigo-500 text-4xl mb-4">🔑</div>
                     <h3 class="text-xl font-bold mb-4">Exclusive Access</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Access exclusive content, events, and early access to new features.</p>
+                    <p class="text-gray-600 dark:text-gray-300">Access exclusive content, events, and early access to new features on Binance Smart Chain.</p>
                 </div>
             </div>
         </div>
@@ -194,31 +178,31 @@
     <section class="py-24 bg-white dark:bg-slate-900" id="vision">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Future Vision</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto mb-8">As a network-driven memecoin, $ETHERON's vision is shaped by its holders and the evolving crypto landscape. Here's a glimpse into our future vision:</p>
+            <p class="text-lg text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto mb-8">As a network-driven memecoin, $Etheron's vision is shaped by its holders and the evolving crypto landscape. Here's a glimpse into our future vision:</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
                 <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
                     <h3 class="text-xl font-bold mb-4 gradient-text">Network Growth & Engagement</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Focus on expanding the Etheron network through fun events, contests, and collaborations. More holders, more fun!</p>
+                    <p class="text-gray-600 dark:text-gray-300">Focus on expanding the EtheronAI network through fun events, contests, and collaborations. More holders, more fun!</p>
                 </div>
                 <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
                     <h3 class="text-xl font-bold mb-4 gradient-text">Meme Utility & Integrations</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Exploring creative ways to integrate $ETHERON into the meme culture and online platforms. Think stickers, games, and viral content!</p>
+                    <p class="text-gray-600 dark:text-gray-300">Exploring creative ways to integrate $Etheron into the meme culture and online platforms. Think stickers, games, and viral content!</p>
                 </div>
                 <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
                     <h3 class="text-xl font-bold mb-4 gradient-text">Decentralized Governance</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Progressively decentralizing the project, giving the holders more say in the direction of $ETHERON. Your memes, your rules!</p>
+                    <p class="text-gray-600 dark:text-gray-300">Progressively decentralizing the project, giving the holders more say in the direction of $Etheron. Your memes, your rules!</p>
                 </div>
                 <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
                     <h3 class="text-xl font-bold mb-4 gradient-text">Partnerships & Charity</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Seeking partnerships to expand the reach of $ETHERON and exploring opportunities for charitable contributions. Memes with a mission!</p>
+                    <p class="text-gray-600 dark:text-gray-300">Seeking partnerships to expand the reach of $Etheron and exploring opportunities for charitable contributions. Memes with a mission!</p>
                 </div>
                 <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
                     <h3 class="text-xl font-bold mb-4 gradient-text">NFTs & Collectibles</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Potential launch of $ETHERON themed NFTs and digital collectibles to add more value and flair to the Development.</p>
+                    <p class="text-gray-600 dark:text-gray-300">Potential launch of $Etheron themed NFTs and digital collectibles to add more value and flair to the Development.</p>
                 </div>
                 <div class="p-8 bg-gray-50 dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow page-transition">
                     <h3 class="text-xl font-bold mb-4 gradient-text">Token Utility Expansion</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Continuously looking for ways to add utility to $ETHERON, making it more than just a meme. Use it, love it, meme it!</p>
+                    <p class="text-gray-600 dark:text-gray-300">Continuously looking for ways to add utility to $Etheron, making it more than just a meme. Use it, love it, meme it!</p>
                 </div>
             </div>
         </div>
@@ -234,8 +218,8 @@
                     <p class="text-gray-600 dark:text-gray-300">A memecoin is a type of cryptocurrency that is often created as a joke or for fun, typically inspired by internet memes.</p>
                 </div>
                 <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
-                    <h3 class="font-bold text-lg">How does Solana differ from other cryptocurrencies?</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Solana is known for its high throughput and low transaction costs, making it a popular choice for decentralized applications and DeFi projects.</p>
+                    <h3 class="font-bold text-lg">How does Binance Smart Chain differ from other cryptocurrencies?</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Binance Smart Chain is known for its high throughput and low transaction costs, making it a popular choice for decentralized applications and DeFi projects.</p>
                 </div>
                 <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg transition-transform transform hover:scale-105">
                     <h3 class="font-bold text-lg">Why are memecoins popular?</h3>
@@ -264,6 +248,12 @@
                 <a href="https://x.com/etheron_ai" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-500">
                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://t.me/EtheronAI" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-500">
+                    <svg class="w-8 h-8" viewBox="0 0 32 32" fill="currentColor">
+                        <circle cx="16" cy="16" r="14" fill="currentColor"/>
+                        <path d="M22.9866 10.2088C23.1112 9.40332 22.3454 8.76755 21.6292 9.082L7.36482 15.3448C6.85123 15.5703 6.8888 16.3483 7.42147 16.5179L10.3631 17.4547C10.9246 17.6335 11.5325 17.541 12.0228 17.2023L18.655 12.6203C18.855 12.4821 19.073 12.7665 18.9021 12.9426L14.1281 17.8646C13.665 18.3421 13.7569 19.1512 14.314 19.5005L19.659 22.8523C20.2585 23.2282 21.0297 22.8506 21.1418 22.1261L22.9866 10.2088Z" fill="white"/>
                     </svg>
                 </a>
                 <a href="https://www.tiktok.com/@etheronai" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-500">
@@ -298,6 +288,6 @@
         </svg>
     </button>
 
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js?173977416"></script>
 </body>
 </html>
